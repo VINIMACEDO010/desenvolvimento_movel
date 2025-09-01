@@ -1,0 +1,146 @@
+/* Reset */
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+:root {
+  --bt-red: #800000;
+  --bt-gold: #ffd700;
+  --bt-dark: #1a1a1a;
+  --bt-light: #fafafa;
+  --bt-card: #ffffff;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  line-height: 1.6;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  background-color: var(--bt-light);
+  color: #222;
+}
+
+/* Cabeçalho */
+header {
+  background: var(--bt-red);
+  color: #fff;
+  padding: 1rem 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+
+.logo { font-size: 1.1rem; font-weight: bold; }
+
+.menu ul {
+  display: flex;
+  gap: 1rem;
+  list-style: none;
+}
+
+.menu a {
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+  transition: color 0.3s;
+}
+
+.menu a:hover { color: var(--bt-gold); }
+
+.hamburger {
+  display: none;
+  font-size: 1.6rem;
+  cursor: pointer;
+  border: none;
+  background: transparent;
+  color: #fff;
+}
+
+/* Hero */
+.hero {
+  background: linear-gradient(135deg, #8b0000, var(--bt-red));
+  color: #fff;
+  padding: 3rem 2rem;
+  text-align: center;
+}
+
+.hero h1 { font-size: 2rem; margin-bottom: .5rem; }
+.hero p { opacity: .95; }
+
+/* Grid de cards */
+.grid-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 1.5rem;
+  padding: 2rem;
+}
+
+.card {
+  background: var(--bt-card);
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(0,0,0,.12);
+  transition: transform .2s, box-shadow .2s;
+  display: grid;
+  grid-template-rows: auto 1fr;
+}
+
+.card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(0,0,0,.18);
+}
+
+.card img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+}
+
+.card-body { padding: 1rem; }
+
+.card h3 {
+  margin-bottom: .5rem;
+  color: var(--bt-red);
+}
+
+.card ul { margin-top: .5rem; padding-left: 1.1rem; color: #444; }
+
+/* Seções extras */
+.sobre, .contato {
+  padding: 2rem;
+  background: #fff;
+  margin: 0 2rem 2rem;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0,0,0,.08);
+}
+
+.sobre h2, .contato h2 { color: var(--bt-dark); margin-bottom: .5rem; }
+
+/* Rodapé */
+footer {
+  background: var(--bt-red);
+  color: white;
+  text-align: center;
+  padding: 1rem;
+  margin-top: auto;
+}
+
+/* Responsividade */
+@media (max-width: 900px) {
+  .menu ul {
+    display: none;
+    flex-direction: column;
+    background: #a52a2a;
+    padding: 1rem;
+    position: absolute;
+    top: 60px;
+    right: 16px;
+    width: 220px;
+    border-radius: 10px;
+    box-shadow: 0 6px 16px rgba(0,0,0,.2);
+  }
+  .menu.active ul { display: flex; }
+  .hamburger { display: block; }
+}
